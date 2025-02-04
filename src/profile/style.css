@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Todhri&display=swap');
+*{margin:0px;
+padding:0px;
+box-sizing: border-box;
+font-family: "Noto Serif Todhri";
+}
+.heading{
+    text-align: center;
+    padding:10px;
+    background-color: #3F88C5;
+    font-size: 22px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.content{
+    padding: 30px;
+    font-size: 23px;
+    background-color:#FFBA08;
+}
+.card{
+    border-radius: 100%;
+
+}
+a{
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 29px;
+    transition: 1s;
+    padding: 10px;
+}
+a:hover{
+   font-size: 40px;
+
+}
+img{
+    width:280px;
+    height: 280px;
+    border-radius: 100%;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
