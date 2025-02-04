@@ -45,7 +45,8 @@ const Account = () => {
     "grade":"I MCA",
     "address":"Brahmavara"
 }]
-// const [first, setfirst] = useState(second)
+ const [list, setlist] = useState(usedat)
+
     return (
     <div> 
       <style>
@@ -61,11 +62,25 @@ const Account = () => {
         min-width:100px;
         text-align:center;
         }
+
+        .inp{
+        padding:10px;
+        margin:6px;
+        
+        }
         `}
       </style>
       <Header/>
         <h2 style={{fontSize:55+'px'}} >Account Page</h2>
-   
+   <form style={{textAlign:'center',width:20+'%',margin:'auto',display:'flex',flexDirection:'column',padding:4+'px',border:2+'px solid black',}} >
+    <input className='inp' type="number" placeholder="Enter Id" name="id" required></input>
+    <input className='inp' type="text" placeholder="Enter Name" name="name" required></input>
+    <input className='inp' type="email" placeholder="Enter Email" name="email" required></input>
+    <input className='inp' type="number" placeholder="Enter Age" name="age" required></input>
+    <input className='inp' type="text" placeholder="Enter Grade" name="grade" required></input>
+    <input className='inp' type="text" placeholder="Enter Address" name="address" required></input>
+    <button type="submit" >Submit</button>
+   </form>
    <table>
     <tr>
       <th>Id</th>
@@ -75,7 +90,7 @@ const Account = () => {
       <th>Grade</th>
       <th>Address</th>
     </tr>
-   {usedat.map((data)=>(
+   {list.map((data)=>(
 <tr>
   <td>{data.id}</td>
   <td>{data.name}</td>
