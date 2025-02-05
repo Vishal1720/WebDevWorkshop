@@ -46,7 +46,36 @@ const Account = () => {
     "address":"Brahmavara"
 }]
  const [list, setlist] = useState(usedat)
+ const [sty, setsty] = useState(true)
+ const[style1,setstyle1]=useState({display:'flex',textAlign:'center',width:20+'%',margin:'auto',flexDirection:'column',padding:4+'px',border:2+'px solid black'})
+ function changestyle()
+ {
+if (sty)
+{
+setsty(false)
+setstyle1({display:'none',textAlign:'center',width:20+'%',margin:'auto',flexDirection:'column',padding:4+'px',border:2+'px solid black'})
+}
+else{
+  setsty(true)
+  setstyle1({display:'flex',textAlign:'center',width:20+'%',margin:'auto',flexDirection:'column',padding:4+'px',border:2+'px solid black'})
+}
 
+ }
+function submitnow(e){
+
+    e.preventDefault();
+    const form=e.target;
+    const idv=form.elements.id.value;
+    const namev=form.elements.name.value;
+    const emailv=form.elements.email.value;
+    const agev=form.elements.age.value;
+    const gradev=form.elements.grade.value;
+    const addressv=form.elements.address.value;
+    const newdata={id:idv,name:namev,email:emailv,age:agev,grade:gradev,address:addressv}
+  e.target.reset();
+  changestyle();
+    setlist([...list,newdata])
+}
     return (
     <div> 
       <style>
@@ -59,6 +88,9 @@ const Account = () => {
         }
         tr,td,th{
         padding:15px;
+        border:1px solid white;
+        background-color:black;
+        color:white;
         min-width:100px;
         text-align:center;
         }
@@ -72,16 +104,19 @@ const Account = () => {
       </style>
       <Header/>
         <h2 style={{fontSize:55+'px'}} >Account Page</h2>
-   <form style={{textAlign:'center',width:20+'%',margin:'auto',display:'flex',flexDirection:'column',padding:4+'px',border:2+'px solid black',}} >
+   <form onSubmit={submitnow} style={style1} >
+    <h3>Add New User</h3>
     <input className='inp' type="number" placeholder="Enter Id" name="id" required></input>
     <input className='inp' type="text" placeholder="Enter Name" name="name" required></input>
     <input className='inp' type="email" placeholder="Enter Email" name="email" required></input>
     <input className='inp' type="number" placeholder="Enter Age" name="age" required></input>
     <input className='inp' type="text" placeholder="Enter Grade" name="grade" required></input>
     <input className='inp' type="text" placeholder="Enter Address" name="address" required></input>
-    <button type="submit" >Submit</button>
+    <button type="submit"   >Submit</button>
    </form>
+   
    <table>
+   <button onClick={changestyle} style={{padding:9+'px',width:100+'%',backgroundColor:'blue',color:'white',fontSize:17+'px'}}>Add</button>
     <tr>
       <th>Id</th>
       <th>Name</th>
