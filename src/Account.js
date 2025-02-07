@@ -3,7 +3,7 @@ import Header from './Header'
 import axios from "axios";
 const Account = () => {
   const usedat=[]
-  const url="http://localhost:9080/api/students";
+  const url="http://91.203.132.60:9080/api/students";
  const [list, setlist] = useState(usedat)
  const [sty, setsty] = useState(true)
  const [upid,setuid]=useState(-1)
@@ -36,7 +36,7 @@ else{
  const delStud=async (id) =>{
 if(window.confirm("You want to delete this?"))
 {
-  await axios.delete(`http://localhost:9080/api/students/${id}`)
+  await axios.delete(`http://91.203.132.60:9080/api/students/${id}`)
   .then(()=>{
     console.log("Deleted");
     fetchStudents();
@@ -79,7 +79,7 @@ function submitnow(e){
 const fetchStudents = async (idn) => {
   try {
    
-      const response = await axios.get("http://localhost:9080/api/students/");
+      const response = await axios.get("http://91.203.132.60:9080/api/students/");
       setlist(response.data);
   } catch (err) {
       console.log("error fetching")
@@ -105,7 +105,7 @@ const idv=form.elements.id.value;
     const gradev=form.elements.grade.value;
     const addressv=form.elements.address.value;
     const newdata={"first_name":namev,"last_name":'empty',"email":emailv,"age":agev,"grade":gradev,"address":addressv}
-    axios.put(`http://localhost:9080/api/students/${idv}`,newdata).then(()=>{
+    axios.put(`http://91.203.132.60/:9080/api/students/${idv}`,newdata).then(()=>{
       alert("Updated Sucessfully")
     }).catch((err)=>{
       alert("Error Bantu")
@@ -166,6 +166,7 @@ fetchStudents();
         font-size:15px;
         font-weight:bold;
         text-shadow:1.2px 1.2px 1px black;
+        
         }
         `}
       </style>
